@@ -59,7 +59,7 @@ class FilterHandler {
 
                     $expressions[] = call_user_func_array([$fieldMapping->getComparisonClass(), 'getExpression'], [$queryBuilder, $formField,$fieldMapping]);
 
-                    call_user_func_array([$fieldMapping->getComparisonClass(), 'applyValue'], [$queryBuilder, $fieldMapping->getName(), $value]);
+                    call_user_func_array([$fieldMapping->getComparisonClass(), 'applyValue'], [$queryBuilder, $formField, $fieldMapping, $value]);
                 }
 
                 $queryBuilder->andWhere(call_user_func_array($formField->getOperatorMethod(), $expressions));
@@ -69,7 +69,7 @@ class FilterHandler {
 
                     $queryBuilder->andWhere(call_user_func_array([$fieldMapping->getComparisonClass(), 'getExpression'], [$queryBuilder, $formField, $fieldMapping]));
 
-                    call_user_func_array([$fieldMapping->getComparisonClass(), 'applyValue'], [$queryBuilder, $fieldMapping->getName(), $value]);
+                    call_user_func_array([$fieldMapping->getComparisonClass(), 'applyValue'], [$queryBuilder, $formField, $fieldMapping, $value]);
                 }
             }
         }
