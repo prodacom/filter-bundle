@@ -57,7 +57,7 @@ class FilterHandler {
                 foreach ($formField->getFieldMappings() as $fieldMapping) {
                     $this->resolveAlias($queryBuilder, $fieldMapping);
 
-                    $expressions[] = call_user_func_array([$fieldMapping->getComparisonClass(), 'getExpression'], [$queryBuilder, $fieldMapping]);
+                    $expressions[] = call_user_func_array([$fieldMapping->getComparisonClass(), 'getExpression'], [$queryBuilder, $formField,$fieldMapping]);
 
                     call_user_func_array([$fieldMapping->getComparisonClass(), 'applyValue'], [$queryBuilder, $fieldMapping->getName(), $value]);
                 }
@@ -67,7 +67,7 @@ class FilterHandler {
                 foreach ($formField->getFieldMappings() as $fieldMapping) {
                     $this->resolveAlias($queryBuilder, $fieldMapping);
 
-                    $queryBuilder->andWhere(call_user_func_array([$fieldMapping->getComparisonClass(), 'getExpression'], [$queryBuilder, $fieldMapping]));
+                    $queryBuilder->andWhere(call_user_func_array([$fieldMapping->getComparisonClass(), 'getExpression'], [$queryBuilder, $formField, $fieldMapping]));
 
                     call_user_func_array([$fieldMapping->getComparisonClass(), 'applyValue'], [$queryBuilder, $fieldMapping->getName(), $value]);
                 }
