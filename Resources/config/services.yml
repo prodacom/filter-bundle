@@ -1,0 +1,25 @@
+parameters:
+    prodacom_filter.factory_class: ProdaCom\FilterBundle\Factory\FilterFactory
+    prodacom_filter.registry_class: ProdaCom\FilterBundle\Registry\FilterRegistry
+    prodacom_filter.handler_class: ProdaCom\FilterBundle\Handler\FilterHandler
+    prodacom_filter.comparison_registry_class: ProdaCom\FilterBundle\Comparison\ComparisonRegistry
+
+services:
+    prodacom_filter.registry:
+        class: "%prodacom_filter.registry_class%"
+        public: false
+
+    prodacom_filter.comparison_registry:
+        class: "%prodacom_filter.comparison_registry_class%"
+        public: false
+
+    prodacom_filter.factory:
+        class: "%prodacom_filter.factory_class%"
+        arguments:
+            - '@prodacom_filter.registry'
+            - '@form.factory'
+
+    prodacom_filter.handler:
+        class: "%prodacom_filter.handler_class%"
+        arguments:
+            - '@doctrine.orm.default_entity_manager'

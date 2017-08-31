@@ -1,0 +1,32 @@
+{
+    "name": "prodacom/filter-bundle",
+    "description": "ProdaCom FilterBundle",
+    "type": "symfony-bundle",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Max Verboom",
+            "email": "max@prodacom.nl"
+        }
+    ],
+    "keywords": [
+        "prodacom filter bundle"
+    ],
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "php": "^5.5.9 || ^7.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "ProdaCom\\FilterBundle": ""
+        }
+    },
+    "target-dir": "ProdaCom/FilterBundle",
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "1.0.x-dev"
+        }
+    }
+}
