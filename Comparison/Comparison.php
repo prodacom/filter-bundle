@@ -11,7 +11,7 @@ use ProdaCom\FilterBundle\Configuration\FormField;
  * @package ProdaCom\FilterBundle\Comparison
  */
 abstract class Comparison implements ComparisonInterface {
-    
+
     /**
      * @param QueryBuilder $queryBuilder
      * @param FormField $formField
